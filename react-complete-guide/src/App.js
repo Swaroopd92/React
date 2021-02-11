@@ -23,6 +23,15 @@ import Person from './Person/Person';
     });
   }
 
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: 'Swaroop', age: 28 },
+        { name: event.target.value, age: 28 }
+      ]
+    });
+  } 
+
   render() {
     return (
       <div className="App">
@@ -35,7 +44,8 @@ import Person from './Person/Person';
         click={this.switchNameHandler.bind(this, 'PT')}/>
         <Person 
         name={this.state.persons[1].name} 
-        age={this.state.persons[1].age}> Her hobbies: Working 24/7</Person>
+        age={this.state.persons[1].age}
+        changed={this.nameChangedHandler}> Her hobbies: Working 24/7</Person>
       </div>
     );
   }
